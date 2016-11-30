@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>AngularJS DatePicker</title>
+    <link rel="stylesheet" href="//rawgit.com/twbs/bootstrap/v3.3.6/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="src/css/ngDatepicker.css">
+</head>
+<body ng-controller="Ctrl as vm">
+    <h1>Angular.js DatePicker Demo</h1>
+
+    <!--<div>
+        <h4>Basic Example</h4>
+        <ugsk-datepicker ng-model="ctrl.date1" first-week-day-sunday="true" placeholder="Pick a date">
+        </ugsk-datepicker>
+        <span ng-bind="ctrl.date1" style="display: block; margin-top: 5px;"></span>
+    </div>-->
+
+    <div>
+        <h4>Example with locale</h4>
+        <ugsk-datepicker ng-model="vm.date2" locale="ru" format="YYYY-MM-DD" view-format="DD.MM.YYYY">
+        </ugsk-datepicker>
+        <span ng-bind="vm.date2" style="display: block; margin-top: 5px;"></span>
+    </div>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment-with-locales.min.js"></script>    
+    <script type="text/javascript">
+        var app = angular.module("app", []);
+        app.controller("Ctrl", [function () {
+            var vm = this;
+
+            vm.date2 = "2016-11-30";
+
+            //self.date2 = "15.03.2016";
+
+        }]);
+    </script>
+    <script type="text/javascript" src="src/js/ugskDatepicker.js"></script>
+</body>
+</html>

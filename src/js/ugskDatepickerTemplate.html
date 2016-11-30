@@ -1,0 +1,36 @@
+<div>
+    <input type="text"
+           class="ng-datepicker-input"
+           ng-change="changeViewModel()"
+           ng-click="showCalendar()"
+           ng-focus="showCalendar()"
+           ng-blur="elementBlur()"
+           ng-keydown="keypressed($event)"
+           ng-model="viewModel"           
+           placeholder="placeholder">
+</div>
+<div class="ng-datepicker" ng-show="calendarOpened" ng-mouseenter="mouseOnCalendar =true" ng-mouseleave="mouseOnCalendar =false">
+    <div class="controls">
+        <div class="left">
+            <i class="fa fa-backward prev-year-btn" ng-click="calendar.selectPrevYear()"></i>
+            <i class="fa fa-angle-left prev-month-btn" ng-click="calendar.selectPrevMonth()"></i>
+        </div>
+        <span class="date" ng-bind="calendar.displayDate"></span>
+        <div class="right">
+            <i class="fa fa-angle-right next-month-btn" ng-click="calendar.selectNextMonth()"></i>
+            <i class="fa fa-forward next-year-btn" ng-click="calendar.selectNextYear()"></i>
+        </div>
+    </div>
+    <div class="day-names">
+        <span ng-repeat="dn in dayNames">
+            <span ng-bind="dn"></span>
+        </span>
+    </div>
+    <div class="calendar">
+        <span ng-repeat="d in calendar.days">
+            <span class="day" ng-click="selectDate(d.value)" ng-class="{disabled: !d.enabled, selected: d.selected, current: d.current}">
+                <span ng-class="{anothe:d.anothe}" ng-bind="d.name"></span>
+            </span>
+        </span>
+    </div>
+</div>
